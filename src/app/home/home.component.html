@@ -1,123 +1,55 @@
-<main>
-<h1>Checkbox</h1>
+<h1>Text Area</h1>
 
 <h2>Basic</h2>
-<goa-checkbox
-  name="desserts"
-  text="Ice Cream"
-  value="10"
-  [checked]="checkbox1Checked"
-  (_change)="onChange()"
->
-</goa-checkbox>
-
-<h2>Checked</h2>
-<goa-checkbox
-  name="desserts"
-  text="Ice Cream"
-  value="10"
-  [checked]="checkbox2Checked"
-  (_change)="onChange2()"
-></goa-checkbox>
+<goa-textarea
+  name="comment-basic"
+  (_change)="onChange($event)"
+  value="Initial value"
+></goa-textarea>
 
 <h2>Disabled</h2>
-<goa-checkbox
-  name="desserts"
-  text="Ice Cream"
-  value="10"
-  disabled
-></goa-checkbox>
+<goa-textarea name="comment-disabled" disabled></goa-textarea>
 
-<h2>Error</h2>
-<goa-checkbox
-  name="desserts"
-  text="Ice Cream"
-  value="10"
-  [checked]="checkbox3Checked"
-  (_change)="onChange3()"
-  error
-></goa-checkbox>
+<h2>Placeholder</h2>
+<goa-textarea
+  placeholder="Tell us what you think.."
+  name="comment"
+></goa-textarea>
+
+<h2>Rows</h2>
+<goa-textarea rows="4" name="comment"></goa-textarea>
+
+<h2>Error state</h2>
+<goa-textarea error name="comment"></goa-textarea>
 
 <h2>Binding</h2>
-<div>Binding: {{ bindingVal }}</div>
-<goa-checkbox
-  goaValue
-  name="desserts"
-  text="Ice Cream"
-  value="IceCream"
-  [(ngModel)]="bindingVal"
-></goa-checkbox>
-
-<div>Binding: {{ bindingNoVal }}</div>
-<goa-checkbox
-  goaValue
-  name="desserts"
-  text="Ice Cream"
-  checked="true"
-  [(ngModel)]="bindingNoVal"
-></goa-checkbox>
+{{ boundVal }}
+<goa-textarea goaValue name="binding" [(ngModel)]="boundVal"></goa-textarea>
 
 <h2>Margin Spacing</h2>
-<goa-checkbox
-  name="desserts"
-  text="Ice Cream"
-  value="10"
-  [checked]="checkbox1Checked"
-  (_change)="onChange()"
+<goa-textarea
   mt="m"
   mb="xs"
   ml="xl"
   mr="2xl"
->
-</goa-checkbox>
+  name="comment-basic"
+  (_change)="onChange($event)"
+  value="Initial value"
+></goa-textarea>
 
 <h2>Reactive Binding</h2>
-<div>Binding: {{ reactiveFormCtrl.value }}</div>
-<goa-checkbox
+{{ reactiveFormCtrl.value }}
+<goa-textarea
   goaValue
-  name="desserts"
-  text="Ice Cream"
+  name="binding"
   [formControl]="reactiveFormCtrl"
   [value]="reactiveFormCtrl.value"
-></goa-checkbox>
+></goa-textarea>
 
-<h2>Reactive Binding [Disabled]</h2>
-<goa-checkbox
+<h2>Reactive Binding - Disabled</h2>
+<goa-textarea
+  name="comment"
   goaValue
-  name="desserts"
-  text="Ice Cream"
   [formControl]="reactiveFormCtrl"
   [attr.disabled]="true"
-></goa-checkbox>
-
-<h2>Reactive Binding - checked</h2>
-<div>Binding: {{ testFormCtrl.value }}</div>
-<goa-checkbox
-  goaValue
-  name="desserts"
-  text="Ice Cream"
-  [formControl]="testFormCtrl"
-></goa-checkbox>
-
-<div>Binding: {{ test1FormCtrl.value }}</div>
-<button (click)="test1FormCtrl.setValue('checked')">
-  Set Value to checked
-</button>
-<goa-checkbox
-  goaChecked
-  name="desserts"
-  text="Ice Cream"
-  [formControl]="test1FormCtrl"
-></goa-checkbox>
-
-<h2>Checkbox with description</h2>
-<goa-checkbox
-  goaChecked
-  name="description"
-  text="Checkbox with description"
-  description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolor
-  eligendi, ipsam sed beatae exercitationem inventore? Saepe ipsa reiciendis
-  inventore quia, voluptatem a amet id possimus rerum ullam, fugiat eveniet."
->
-</goa-checkbox>
-</main>
+></goa-textarea>
